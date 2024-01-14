@@ -14,12 +14,6 @@ from sensor_msgs.msg import LaserScan
 from std_msgs.msg import String, Int32
 from geometry_msgs.msg import Twist
 
-#ROBOTICA -11 0
-#ELECTRONICA -14 -4
-#RECEPCION 10 9
-#ENTRADA -4 -16
-#AUTOMATICA -3 10
-
 # Renombrar tópicos para mejor visibilidad
 TOPIC_VEL = "/cmd_vel"
 TOPIC_SCAN = '/base_scan'
@@ -30,16 +24,16 @@ class Preguntar(State):
         self.base = False
 
     def execute(self, userdata):
-        llamadaVoz = input("Adonde quiere ir? ")
-        if llamadaVoz == 'ROBOTICA':
+        llamadaVoz = input("¿Adonde quiere ir? ")
+        if llamadaVoz == 'ROBOTICA' or llamadaVoz == 'robotica':
             return 'ROB'
-        elif llamadaVoz == 'ELECTRONICA':
+        elif llamadaVoz == 'ELECTRONICA' or llamadaVoz == 'electronica':
             return 'ELEC'
-        elif llamadaVoz == 'ENTRADA':
+        elif llamadaVoz == 'ENTRADA' or llamadaVoz == 'entrada':
             return 'ENTRADA'
-        elif llamadaVoz == 'AUTOMATICA':
+        elif llamadaVoz == 'AUTOMATICA' or llamadaVoz == 'automatica':
             return 'AUTO'
-        elif llamadaVoz == 'RECEPCION':
+        elif llamadaVoz == 'RECEPCION' or llamadaVoz == 'recepcion':
             return 'REC'
         else:
             return 'ERROR'
